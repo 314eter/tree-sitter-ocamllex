@@ -14,6 +14,12 @@ module.exports = grammar({
     $.comment
   ],
 
+  inline: $ => [
+    $._regexp_name,
+    $._lexer_entry_name,
+    $._lexer_argument
+  ],
+
   word: $ => $._identifier,
 
   rules: {
