@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-ocamllex",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "description": "OCamllex grammar for tree-sitter",
   "keywords": [
     "tree-sitter",
