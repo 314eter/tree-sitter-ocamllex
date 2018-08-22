@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-ocamllex",
-  "version": "0.12.1",
+  "version": "0.13.0",
   "description": "OCamllex grammar for tree-sitter",
   "keywords": [
     "tree-sitter",
@@ -21,6 +21,6 @@
     "nan": "^2.10.0"
   },
   "devDependencies": {
-    "tree-sitter-cli": "^0.12.7"
+    "tree-sitter-cli": "^0.13.6"
   }
 }
