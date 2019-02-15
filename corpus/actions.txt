@@ -43,11 +43,17 @@ rule main = parse
   | _ { '}' }
   | _ { f' '"' }
   | _ { {} }
+  | _ { (* '\" " *) }
+  | _ { (* '" " *) }
+  | _ { (* '*) }
 
 ---
 
 (lexer_definition
   (lexer_entry (lexer_entry_name)
+    (lexer_case (any) (action (ocaml)))
+    (lexer_case (any) (action (ocaml)))
+    (lexer_case (any) (action (ocaml)))
     (lexer_case (any) (action (ocaml)))
     (lexer_case (any) (action (ocaml)))
     (lexer_case (any) (action (ocaml)))
