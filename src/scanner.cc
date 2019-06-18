@@ -1,6 +1,6 @@
 #include <tree_sitter/parser.h>
-#include <cctype>
 #include <string>
+#include <wctype.h>
 
 namespace {
 
@@ -12,21 +12,14 @@ enum {
 
 struct Scanner {
   bool in_string = false;
-  std::string quoted_string_id;
 
   unsigned serialize(char *buffer) {
-    size_t size = quoted_string_id.size();
-
-    buffer[0] = in_string;
-    quoted_string_id.copy(&buffer[1], size);
-    return size + 1;
+    *buffer = in_string;
+    return 1;
   }
 
   void deserialize(const char *buffer, unsigned length) {
-    if (length > 0) {
-      in_string = buffer[0];
-      quoted_string_id.assign(&buffer[1], length - 1);
-    }
+    in_string = (length > 0) && *buffer;
   }
 
   void advance(TSLexer *lexer) {
@@ -38,7 +31,7 @@ struct Scanner {
   }
 
   bool scan(TSLexer *lexer, const bool *valid_symbols) {
-    while (isspace(lexer->lookahead)) {
+    while (iswspace(lexer->lookahead)) {
       skip(lexer);
     }
 
@@ -77,14 +70,13 @@ struct Scanner {
   }
 
   bool scan_character(TSLexer *lexer, char *last) {
-
     switch (lexer->lookahead) {
       case '\\':
         advance(lexer);
-        if (isdigit(lexer->lookahead)) {
+        if (iswdigit(lexer->lookahead)) {
           advance(lexer);
           for (size_t i = 0; i < 2; i++) {
-            if (!isdigit(lexer->lookahead)) return false;
+            if (!iswdigit(lexer->lookahead)) return false;
             advance(lexer);
           }
         } else {
@@ -92,14 +84,14 @@ struct Scanner {
             case 'x':
               advance(lexer);
               for (size_t i = 0; i < 2; i++) {
-                if (!isdigit(lexer->lookahead) && (tolower(lexer->lookahead) < 'a' || tolower(lexer->lookahead) > 'f')) return false;
+                if (!iswdigit(lexer->lookahead) && (towupper(lexer->lookahead) < 'A' || towupper(lexer->lookahead) > 'F')) return false;
                 advance(lexer);
               }
               break;
             case 'o':
               advance(lexer);
               for (size_t i = 0; i < 3; i++) {
-                if (!isdigit(lexer->lookahead) || lexer->lookahead > '7') return false;
+                if (!iswdigit(lexer->lookahead) || lexer->lookahead > '7') return false;
                 advance(lexer);
               }
               break;
@@ -138,11 +130,11 @@ struct Scanner {
   }
 
   bool scan_quoted_string(TSLexer *lexer) {
+    std::string id;
     size_t i;
-    quoted_string_id.clear();
 
-    while (islower(lexer->lookahead) || lexer->lookahead == '_') {
-      quoted_string_id.push_back(lexer->lookahead);
+    while (iswlower(lexer->lookahead) || lexer->lookahead == '_') {
+      id.push_back(lexer->lookahead);
       advance(lexer);
     }
 
@@ -153,11 +145,11 @@ struct Scanner {
       switch (lexer->lookahead) {
         case '|':
           advance(lexer);
-          for (i = 0; i < quoted_string_id.size(); i++) {
-            if (lexer->lookahead != quoted_string_id[i]) break;
+          for (i = 0; i < id.size(); i++) {
+            if (lexer->lookahead != id[i]) break;
             advance(lexer);
           }
-          if (i == quoted_string_id.size() && lexer->lookahead == '}') {
+          if (i == id.size() && lexer->lookahead == '}') {
             advance(lexer);
             return true;
           }
@@ -204,9 +196,9 @@ struct Scanner {
         case '\0':
           return false;
         default:
-          if (isalpha(lexer->lookahead) || lexer->lookahead == '_') {
+          if (iswalpha(lexer->lookahead) || lexer->lookahead == '_') {
             if (last) last = 0; else advance(lexer);
-            while (isalnum(lexer->lookahead) || lexer->lookahead == '_' || lexer->lookahead == '\'') {
+            while (iswalnum(lexer->lookahead) || lexer->lookahead == '_' || lexer->lookahead == '\'') {
               advance(lexer);
             }
           } else {
@@ -247,9 +239,9 @@ struct Scanner {
         case '\0':
           return false;
         default:
-          if (isalpha(lexer->lookahead) || lexer->lookahead == '_') {
+          if (iswalpha(lexer->lookahead) || lexer->lookahead == '_') {
             advance(lexer);
-            while (isalnum(lexer->lookahead) || lexer->lookahead == '_' || lexer->lookahead == '\'') {
+            while (iswalnum(lexer->lookahead) || lexer->lookahead == '_' || lexer->lookahead == '\'') {
               advance(lexer);
             }
           } else {

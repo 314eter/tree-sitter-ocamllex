@@ -653,5 +653,7 @@
     "_regexp_name",
     "_lexer_entry_name",
     "_lexer_argument"
-  ]
+  ],
+  "supertypes": []
 }
+

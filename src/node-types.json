@@ -1,0 +1,197 @@
+[
+  {
+    "type": "action",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "aliased_regexp",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "character",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "character_range",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "character_set",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "escape_sequence",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "lexer_case",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "lexer_definition",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "lexer_entry",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "named_regexp",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "parenthesized_regexp",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "refill_handler",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "regexp_alternative",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "regexp_concatenation",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "regexp_difference",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "regexp_option",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "regexp_repetition",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "regexp_strict_repetition",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "string",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "rule",
+    "named": false
+  },
+  {
+    "type": "and",
+    "named": false
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  },
+  {
+    "type": "let",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": "_",
+    "named": false
+  },
+  {
+    "type": "eof",
+    "named": false
+  },
+  {
+    "type": "'",
+    "named": false
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "^",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": "#",
+    "named": false
+  },
+  {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": "?",
+    "named": false
+  },
+  {
+    "type": "|",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "as",
+    "named": false
+  },
+  {
+    "type": "refill",
+    "named": false
+  },
+  {
+    "type": "parse",
+    "named": false
+  },
+  {
+    "type": "shortest",
+    "named": false
+  }
+]

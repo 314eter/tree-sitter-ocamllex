@@ -2,4 +2,4 @@ corpus
 build
 test.mll
 .travis.yml
-
+tree-sitter-ocamllex.wasm

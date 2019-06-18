@@ -3,3 +3,4 @@ node_modules
 build
 *.log
 test.mll
+tree-sitter-ocamllex.wasm
