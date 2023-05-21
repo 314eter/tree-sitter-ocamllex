@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-ocamllex",
-  "version": "0.16.0",
+  "version": "0.20.0",
   "description": "OCamllex grammar for tree-sitter",
   "keywords": [
     "tree-sitter",
@@ -11,16 +11,25 @@
   "homepage": "https://github.com/314eter/tree-sitter-ocamllex",
   "license": "MIT",
   "author": "Pieter Goetschalckx",
-  "main": "index.js",
+  "main": "bindings/node",
   "repository": "github:314eter/tree-sitter-ocamllex",
   "scripts": {
-    "build": "tree-sitter generate && node-gyp build",
+    "build": "tree-sitter generate",
     "test": "tree-sitter test"
   },
   "dependencies": {
-    "nan": "^2.14.1"
+    "nan": "^2.17.0"
   },
   "devDependencies": {
-    "tree-sitter-cli": "^0.16.7"
-  }
+    "tree-sitter-cli": "^0.20.8"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.ocamllex",
+      "file-types": [
+        "mll"
+      ],
+      "injection-regex": "^(mll|ocamllex)$"
+    }
+  ]
 }
