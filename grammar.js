@@ -42,9 +42,9 @@ module.exports = grammar({
 
     named_regexp: $ => seq(
       'let',
-      $._regexp_name,
+      field('name', $._regexp_name),
       '=',
-      $._regexp
+      field('regexp', $._regexp)
     ),
 
     _regexp: $ => choice(
@@ -135,7 +135,7 @@ module.exports = grammar({
     ),
 
     lexer_entry: $ => seq(
-      $._lexer_entry_name,
+      field('name', $._lexer_entry_name),
       repeat($._lexer_argument),
       '=',
       choice('parse', 'shortest'),

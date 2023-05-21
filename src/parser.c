@@ -12,9 +12,9 @@
 #define ALIAS_COUNT 2
 #define TOKEN_COUNT 37
 #define EXTERNAL_TOKEN_COUNT 3
-#define FIELD_COUNT 0
+#define FIELD_COUNT 2
 #define MAX_ALIAS_SEQUENCE_LENGTH 7
-#define PRODUCTION_ID_COUNT 3
+#define PRODUCTION_ID_COUNT 4
 
 enum {
   sym__identifier = 1,
@@ -469,12 +469,36 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
   },
 };
 
+enum {
+  field_name = 1,
+  field_regexp = 2,
+};
+
+static const char * const ts_field_names[] = {
+  [0] = NULL,
+  [field_name] = "name",
+  [field_regexp] = "regexp",
+};
+
+static const TSFieldMapSlice ts_field_map_slices[PRODUCTION_ID_COUNT] = {
+  [2] = {.index = 0, .length = 2},
+  [3] = {.index = 2, .length = 1},
+};
+
+static const TSFieldMapEntry ts_field_map_entries[] = {
+  [0] =
+    {field_name, 1},
+    {field_regexp, 3},
+  [2] =
+    {field_name, 0},
+};
+
 static const TSSymbol ts_alias_sequences[PRODUCTION_ID_COUNT][MAX_ALIAS_SEQUENCE_LENGTH] = {
   [0] = {0},
   [1] = {
     [0] = alias_sym_lexer_argument,
   },
-  [2] = {
+  [3] = {
     [0] = alias_sym_lexer_entry_name,
   },
 };
@@ -2578,7 +2602,7 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [33] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_regexp_difference, 3),
   [35] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_regexp_concatenation, 2),
   [37] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_regexp_concatenation, 2),
-  [39] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_named_regexp, 4),
+  [39] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_named_regexp, 4, .production_id = 2),
   [41] = {.entry = {.count = 1, .reusable = true}}, SHIFT(24),
   [43] = {.entry = {.count = 1, .reusable = false}}, SHIFT(86),
   [45] = {.entry = {.count = 1, .reusable = true}}, SHIFT(20),
@@ -2627,17 +2651,17 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [134] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_lexer_definition_repeat1, 2), SHIFT_REPEAT(80),
   [137] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_lexer_definition, 2),
   [139] = {.entry = {.count = 1, .reusable = true}}, SHIFT(72),
-  [141] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_lexer_entry, 7, .production_id = 2),
+  [141] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_lexer_entry, 7, .production_id = 3),
   [143] = {.entry = {.count = 1, .reusable = true}}, SHIFT(14),
-  [145] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_lexer_entry, 6, .production_id = 2),
+  [145] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_lexer_entry, 6, .production_id = 3),
   [147] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_lexer_definition, 6),
-  [149] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_lexer_entry, 5, .production_id = 2),
+  [149] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_lexer_entry, 5, .production_id = 3),
   [151] = {.entry = {.count = 1, .reusable = true}}, SHIFT(16),
   [153] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_lexer_definition, 4),
   [155] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_lexer_definition, 3),
   [157] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_character_set_repeat1, 2), SHIFT_REPEAT(33),
   [160] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym_character_set_repeat1, 2),
-  [162] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_lexer_entry, 4, .production_id = 2),
+  [162] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_lexer_entry, 4, .production_id = 3),
   [164] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_lexer_definition, 5),
   [166] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym_lexer_entry_repeat2, 2),
   [168] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_lexer_entry_repeat2, 2), SHIFT_REPEAT(14),
@@ -2703,6 +2727,9 @@ extern const TSLanguage *tree_sitter_ocamllex(void) {
     .small_parse_table_map = ts_small_parse_table_map,
     .parse_actions = ts_parse_actions,
     .symbol_names = ts_symbol_names,
+    .field_names = ts_field_names,
+    .field_map_slices = ts_field_map_slices,
+    .field_map_entries = ts_field_map_entries,
     .symbol_metadata = ts_symbol_metadata,
     .public_symbol_map = ts_symbol_map,
     .alias_map = ts_non_terminal_alias_map,

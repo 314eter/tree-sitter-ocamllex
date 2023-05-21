@@ -186,7 +186,18 @@
   {
     "type": "lexer_entry",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "lexer_entry_name",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -198,10 +209,6 @@
         {
           "type": "lexer_case",
           "named": true
-        },
-        {
-          "type": "lexer_entry_name",
-          "named": true
         }
       ]
     }
@@ -209,16 +216,27 @@
   {
     "type": "named_regexp",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "_regexp",
-          "named": true
-        }
-      ]
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "regexp_name",
+            "named": true
+          }
+        ]
+      },
+      "regexp": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "_regexp",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {

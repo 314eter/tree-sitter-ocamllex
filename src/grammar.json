@@ -104,16 +104,24 @@
           "value": "let"
         },
         {
-          "type": "SYMBOL",
-          "name": "_regexp_name"
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_regexp_name"
+          }
         },
         {
           "type": "STRING",
           "value": "="
         },
         {
-          "type": "SYMBOL",
-          "name": "_regexp"
+          "type": "FIELD",
+          "name": "regexp",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_regexp"
+          }
         }
       ]
     },
@@ -480,8 +488,12 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_lexer_entry_name"
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_lexer_entry_name"
+          }
         },
         {
           "type": "REPEAT",
