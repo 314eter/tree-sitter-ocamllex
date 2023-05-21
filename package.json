@@ -8,11 +8,11 @@
     "ocaml",
     "ocamllex"
   ],
-  "homepage": "https://github.com/atom-ocaml/tree-sitter-ocamllex",
+  "homepage": "https://github.com/314eter/tree-sitter-ocamllex",
   "license": "MIT",
   "author": "Pieter Goetschalckx",
   "main": "index.js",
-  "repository": "github:atom-ocaml/tree-sitter-ocamllex",
+  "repository": "github:314eter/tree-sitter-ocamllex",
   "scripts": {
     "build": "tree-sitter generate && node-gyp build",
     "test": "tree-sitter test"
