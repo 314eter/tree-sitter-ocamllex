@@ -204,6 +204,10 @@
             },
             {
               "type": "SYMBOL",
+              "name": "_null"
+            },
+            {
+              "type": "SYMBOL",
               "name": "escape_sequence"
             }
           ]
@@ -227,8 +231,33 @@
             "type": "CHOICE",
             "members": [
               {
+                "type": "IMMEDIATE_TOKEN",
+                "content": {
+                  "type": "STRING",
+                  "value": " "
+                }
+              },
+              {
+                "type": "IMMEDIATE_TOKEN",
+                "content": {
+                  "type": "STRING",
+                  "value": "\n"
+                }
+              },
+              {
+                "type": "IMMEDIATE_TOKEN",
+                "content": {
+                  "type": "STRING",
+                  "value": "\t"
+                }
+              },
+              {
                 "type": "PATTERN",
                 "value": "[^\\\\\"]+"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_null"
               },
               {
                 "type": "SYMBOL",
@@ -644,12 +673,16 @@
       "name": "comment"
     },
     {
+      "type": "SYMBOL",
+      "name": "ocaml"
+    },
+    {
       "type": "STRING",
       "value": "\""
     },
     {
       "type": "SYMBOL",
-      "name": "ocaml"
+      "name": "_null"
     }
   ],
   "inline": [

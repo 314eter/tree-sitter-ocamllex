@@ -66,6 +66,7 @@ module.exports = grammar({
       "'",
       choice(
         /[^\\']/,
+        $._null,
         $.escape_sequence
       ),
       "'"
@@ -74,7 +75,11 @@ module.exports = grammar({
     string: $ => seq(
       '"',
       repeat(choice(
+        token.immediate(' '),
+        token.immediate('\n'),
+        token.immediate('\t'),
         /[^\\"]+/,
+        $._null,
         $.escape_sequence,
         alias(/\\u\{[0-9A-Fa-f]+\}/, $.escape_sequence),
         alias(/\\\n[\t ]*/, $.escape_sequence)
@@ -157,8 +162,9 @@ module.exports = grammar({
 
   externals: $ => [
     $.comment,
+    $.ocaml,
     '"',
-    $.ocaml
+    $._null,
   ]
 })
 
