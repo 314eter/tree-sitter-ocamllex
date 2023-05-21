@@ -1,5 +1,59 @@
 [
   {
+    "type": "_regexp",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "aliased_regexp",
+        "named": true
+      },
+      {
+        "type": "any",
+        "named": true
+      },
+      {
+        "type": "character",
+        "named": true
+      },
+      {
+        "type": "character_set",
+        "named": true
+      },
+      {
+        "type": "eof",
+        "named": true
+      },
+      {
+        "type": "parenthesized_regexp",
+        "named": true
+      },
+      {
+        "type": "regexp_alternative",
+        "named": true
+      },
+      {
+        "type": "regexp_concatenation",
+        "named": true
+      },
+      {
+        "type": "regexp_difference",
+        "named": true
+      },
+      {
+        "type": "regexp_name",
+        "named": true
+      },
+      {
+        "type": "regexp_repetition",
+        "named": true
+      },
+      {
+        "type": "string",
+        "named": true
+      }
+    ]
+  },
+  {
     "type": "action",
     "named": true,
     "fields": {},
@@ -23,59 +77,7 @@
       "required": true,
       "types": [
         {
-          "type": "aliased_regexp",
-          "named": true
-        },
-        {
-          "type": "any",
-          "named": true
-        },
-        {
-          "type": "character",
-          "named": true
-        },
-        {
-          "type": "character_set",
-          "named": true
-        },
-        {
-          "type": "eof",
-          "named": true
-        },
-        {
-          "type": "parenthesized_regexp",
-          "named": true
-        },
-        {
-          "type": "regexp_alternative",
-          "named": true
-        },
-        {
-          "type": "regexp_concatenation",
-          "named": true
-        },
-        {
-          "type": "regexp_difference",
-          "named": true
-        },
-        {
-          "type": "regexp_name",
-          "named": true
-        },
-        {
-          "type": "regexp_option",
-          "named": true
-        },
-        {
-          "type": "regexp_repetition",
-          "named": true
-        },
-        {
-          "type": "regexp_strict_repetition",
-          "named": true
-        },
-        {
-          "type": "string",
+          "type": "_regexp",
           "named": true
         }
       ]
@@ -144,63 +146,11 @@
       "required": true,
       "types": [
         {
+          "type": "_regexp",
+          "named": true
+        },
+        {
           "type": "action",
-          "named": true
-        },
-        {
-          "type": "aliased_regexp",
-          "named": true
-        },
-        {
-          "type": "any",
-          "named": true
-        },
-        {
-          "type": "character",
-          "named": true
-        },
-        {
-          "type": "character_set",
-          "named": true
-        },
-        {
-          "type": "eof",
-          "named": true
-        },
-        {
-          "type": "parenthesized_regexp",
-          "named": true
-        },
-        {
-          "type": "regexp_alternative",
-          "named": true
-        },
-        {
-          "type": "regexp_concatenation",
-          "named": true
-        },
-        {
-          "type": "regexp_difference",
-          "named": true
-        },
-        {
-          "type": "regexp_name",
-          "named": true
-        },
-        {
-          "type": "regexp_option",
-          "named": true
-        },
-        {
-          "type": "regexp_repetition",
-          "named": true
-        },
-        {
-          "type": "regexp_strict_repetition",
-          "named": true
-        },
-        {
-          "type": "string",
           "named": true
         }
       ]
@@ -265,59 +215,7 @@
       "required": true,
       "types": [
         {
-          "type": "aliased_regexp",
-          "named": true
-        },
-        {
-          "type": "any",
-          "named": true
-        },
-        {
-          "type": "character",
-          "named": true
-        },
-        {
-          "type": "character_set",
-          "named": true
-        },
-        {
-          "type": "eof",
-          "named": true
-        },
-        {
-          "type": "parenthesized_regexp",
-          "named": true
-        },
-        {
-          "type": "regexp_alternative",
-          "named": true
-        },
-        {
-          "type": "regexp_concatenation",
-          "named": true
-        },
-        {
-          "type": "regexp_difference",
-          "named": true
-        },
-        {
-          "type": "regexp_name",
-          "named": true
-        },
-        {
-          "type": "regexp_option",
-          "named": true
-        },
-        {
-          "type": "regexp_repetition",
-          "named": true
-        },
-        {
-          "type": "regexp_strict_repetition",
-          "named": true
-        },
-        {
-          "type": "string",
+          "type": "_regexp",
           "named": true
         }
       ]
@@ -332,59 +230,7 @@
       "required": true,
       "types": [
         {
-          "type": "aliased_regexp",
-          "named": true
-        },
-        {
-          "type": "any",
-          "named": true
-        },
-        {
-          "type": "character",
-          "named": true
-        },
-        {
-          "type": "character_set",
-          "named": true
-        },
-        {
-          "type": "eof",
-          "named": true
-        },
-        {
-          "type": "parenthesized_regexp",
-          "named": true
-        },
-        {
-          "type": "regexp_alternative",
-          "named": true
-        },
-        {
-          "type": "regexp_concatenation",
-          "named": true
-        },
-        {
-          "type": "regexp_difference",
-          "named": true
-        },
-        {
-          "type": "regexp_name",
-          "named": true
-        },
-        {
-          "type": "regexp_option",
-          "named": true
-        },
-        {
-          "type": "regexp_repetition",
-          "named": true
-        },
-        {
-          "type": "regexp_strict_repetition",
-          "named": true
-        },
-        {
-          "type": "string",
+          "type": "_regexp",
           "named": true
         }
       ]
@@ -414,59 +260,7 @@
       "required": true,
       "types": [
         {
-          "type": "aliased_regexp",
-          "named": true
-        },
-        {
-          "type": "any",
-          "named": true
-        },
-        {
-          "type": "character",
-          "named": true
-        },
-        {
-          "type": "character_set",
-          "named": true
-        },
-        {
-          "type": "eof",
-          "named": true
-        },
-        {
-          "type": "parenthesized_regexp",
-          "named": true
-        },
-        {
-          "type": "regexp_alternative",
-          "named": true
-        },
-        {
-          "type": "regexp_concatenation",
-          "named": true
-        },
-        {
-          "type": "regexp_difference",
-          "named": true
-        },
-        {
-          "type": "regexp_name",
-          "named": true
-        },
-        {
-          "type": "regexp_option",
-          "named": true
-        },
-        {
-          "type": "regexp_repetition",
-          "named": true
-        },
-        {
-          "type": "regexp_strict_repetition",
-          "named": true
-        },
-        {
-          "type": "string",
+          "type": "_regexp",
           "named": true
         }
       ]
@@ -481,59 +275,7 @@
       "required": true,
       "types": [
         {
-          "type": "aliased_regexp",
-          "named": true
-        },
-        {
-          "type": "any",
-          "named": true
-        },
-        {
-          "type": "character",
-          "named": true
-        },
-        {
-          "type": "character_set",
-          "named": true
-        },
-        {
-          "type": "eof",
-          "named": true
-        },
-        {
-          "type": "parenthesized_regexp",
-          "named": true
-        },
-        {
-          "type": "regexp_alternative",
-          "named": true
-        },
-        {
-          "type": "regexp_concatenation",
-          "named": true
-        },
-        {
-          "type": "regexp_difference",
-          "named": true
-        },
-        {
-          "type": "regexp_name",
-          "named": true
-        },
-        {
-          "type": "regexp_option",
-          "named": true
-        },
-        {
-          "type": "regexp_repetition",
-          "named": true
-        },
-        {
-          "type": "regexp_strict_repetition",
-          "named": true
-        },
-        {
-          "type": "string",
+          "type": "_regexp",
           "named": true
         }
       ]
@@ -548,126 +290,7 @@
       "required": true,
       "types": [
         {
-          "type": "aliased_regexp",
-          "named": true
-        },
-        {
-          "type": "any",
-          "named": true
-        },
-        {
-          "type": "character",
-          "named": true
-        },
-        {
-          "type": "character_set",
-          "named": true
-        },
-        {
-          "type": "eof",
-          "named": true
-        },
-        {
-          "type": "parenthesized_regexp",
-          "named": true
-        },
-        {
-          "type": "regexp_alternative",
-          "named": true
-        },
-        {
-          "type": "regexp_concatenation",
-          "named": true
-        },
-        {
-          "type": "regexp_difference",
-          "named": true
-        },
-        {
-          "type": "regexp_name",
-          "named": true
-        },
-        {
-          "type": "regexp_option",
-          "named": true
-        },
-        {
-          "type": "regexp_repetition",
-          "named": true
-        },
-        {
-          "type": "regexp_strict_repetition",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "regexp_option",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "aliased_regexp",
-          "named": true
-        },
-        {
-          "type": "any",
-          "named": true
-        },
-        {
-          "type": "character",
-          "named": true
-        },
-        {
-          "type": "character_set",
-          "named": true
-        },
-        {
-          "type": "eof",
-          "named": true
-        },
-        {
-          "type": "parenthesized_regexp",
-          "named": true
-        },
-        {
-          "type": "regexp_alternative",
-          "named": true
-        },
-        {
-          "type": "regexp_concatenation",
-          "named": true
-        },
-        {
-          "type": "regexp_difference",
-          "named": true
-        },
-        {
-          "type": "regexp_name",
-          "named": true
-        },
-        {
-          "type": "regexp_option",
-          "named": true
-        },
-        {
-          "type": "regexp_repetition",
-          "named": true
-        },
-        {
-          "type": "regexp_strict_repetition",
-          "named": true
-        },
-        {
-          "type": "string",
+          "type": "_regexp",
           "named": true
         }
       ]
@@ -682,126 +305,7 @@
       "required": true,
       "types": [
         {
-          "type": "aliased_regexp",
-          "named": true
-        },
-        {
-          "type": "any",
-          "named": true
-        },
-        {
-          "type": "character",
-          "named": true
-        },
-        {
-          "type": "character_set",
-          "named": true
-        },
-        {
-          "type": "eof",
-          "named": true
-        },
-        {
-          "type": "parenthesized_regexp",
-          "named": true
-        },
-        {
-          "type": "regexp_alternative",
-          "named": true
-        },
-        {
-          "type": "regexp_concatenation",
-          "named": true
-        },
-        {
-          "type": "regexp_difference",
-          "named": true
-        },
-        {
-          "type": "regexp_name",
-          "named": true
-        },
-        {
-          "type": "regexp_option",
-          "named": true
-        },
-        {
-          "type": "regexp_repetition",
-          "named": true
-        },
-        {
-          "type": "regexp_strict_repetition",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "regexp_strict_repetition",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "aliased_regexp",
-          "named": true
-        },
-        {
-          "type": "any",
-          "named": true
-        },
-        {
-          "type": "character",
-          "named": true
-        },
-        {
-          "type": "character_set",
-          "named": true
-        },
-        {
-          "type": "eof",
-          "named": true
-        },
-        {
-          "type": "parenthesized_regexp",
-          "named": true
-        },
-        {
-          "type": "regexp_alternative",
-          "named": true
-        },
-        {
-          "type": "regexp_concatenation",
-          "named": true
-        },
-        {
-          "type": "regexp_difference",
-          "named": true
-        },
-        {
-          "type": "regexp_name",
-          "named": true
-        },
-        {
-          "type": "regexp_option",
-          "named": true
-        },
-        {
-          "type": "regexp_repetition",
-          "named": true
-        },
-        {
-          "type": "regexp_strict_repetition",
-          "named": true
-        },
-        {
-          "type": "string",
+          "type": "_regexp",
           "named": true
         }
       ]

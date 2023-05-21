@@ -164,14 +164,6 @@
         },
         {
           "type": "SYMBOL",
-          "name": "regexp_strict_repetition"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "regexp_option"
-        },
-        {
-          "type": "SYMBOL",
           "name": "regexp_alternative"
         },
         {
@@ -342,7 +334,7 @@
     },
     "regexp_difference": {
       "type": "PREC_LEFT",
-      "value": 6,
+      "value": 0,
       "content": {
         "type": "SEQ",
         "members": [
@@ -362,59 +354,34 @@
       }
     },
     "regexp_repetition": {
-      "type": "PREC",
-      "value": 5,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "_regexp"
-          },
-          {
-            "type": "STRING",
-            "value": "*"
-          }
-        ]
-      }
-    },
-    "regexp_strict_repetition": {
-      "type": "PREC",
-      "value": 5,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "_regexp"
-          },
-          {
-            "type": "STRING",
-            "value": "+"
-          }
-        ]
-      }
-    },
-    "regexp_option": {
-      "type": "PREC",
-      "value": 5,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "_regexp"
-          },
-          {
-            "type": "STRING",
-            "value": "?"
-          }
-        ]
-      }
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_regexp"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "*"
+            },
+            {
+              "type": "STRING",
+              "value": "+"
+            },
+            {
+              "type": "STRING",
+              "value": "?"
+            }
+          ]
+        }
+      ]
     },
     "regexp_alternative": {
       "type": "PREC_LEFT",
-      "value": 3,
+      "value": 0,
       "content": {
         "type": "SEQ",
         "members": [
@@ -435,7 +402,7 @@
     },
     "regexp_concatenation": {
       "type": "PREC_LEFT",
-      "value": 4,
+      "value": 0,
       "content": {
         "type": "SEQ",
         "members": [
@@ -469,7 +436,7 @@
     },
     "aliased_regexp": {
       "type": "PREC_RIGHT",
-      "value": 2,
+      "value": 0,
       "content": {
         "type": "SEQ",
         "members": [
@@ -635,7 +602,30 @@
     }
   ],
   "conflicts": [],
-  "precedences": [],
+  "precedences": [
+    [
+      {
+        "type": "SYMBOL",
+        "name": "regexp_difference"
+      },
+      {
+        "type": "SYMBOL",
+        "name": "regexp_repetition"
+      },
+      {
+        "type": "SYMBOL",
+        "name": "regexp_concatenation"
+      },
+      {
+        "type": "SYMBOL",
+        "name": "regexp_alternative"
+      },
+      {
+        "type": "SYMBOL",
+        "name": "aliased_regexp"
+      }
+    ]
+  ],
   "externals": [
     {
       "type": "SYMBOL",
@@ -655,6 +645,8 @@
     "_lexer_entry_name",
     "_lexer_argument"
   ],
-  "supertypes": []
+  "supertypes": [
+    "_regexp"
+  ]
 }
 

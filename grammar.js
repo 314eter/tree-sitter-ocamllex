@@ -1,11 +1,3 @@
-const PREC = {
-  diff: 6,
-  rep: 5,
-  concat: 4,
-  alt: 3,
-  as: 2
-}
-
 module.exports = grammar({
   name: 'ocamllex',
 
@@ -20,7 +12,21 @@ module.exports = grammar({
     $._lexer_argument
   ],
 
+  precedences: $ => [
+    [
+      $.regexp_difference,
+      $.regexp_repetition,
+      $.regexp_concatenation,
+      $.regexp_alternative,
+      $.aliased_regexp,
+    ],
+  ],
+
   word: $ => $._identifier,
+
+  supertypes: $ => [
+    $._regexp
+  ],
 
   rules: {
     lexer_definition: $ => seq(
@@ -50,8 +56,6 @@ module.exports = grammar({
       $.character_set,
       $.regexp_difference,
       $.regexp_repetition,
-      $.regexp_strict_repetition,
-      $.regexp_option,
       $.regexp_alternative,
       $.regexp_concatenation,
       $.aliased_regexp,
@@ -97,32 +101,28 @@ module.exports = grammar({
 
     character_range: $ => seq($.character, '-', $.character),
 
-    regexp_difference: $ => prec.left(PREC.diff, seq(
+    regexp_difference: $ => prec.left(seq(
       $._regexp,
       '#',
       $._regexp
     )),
 
-    regexp_repetition: $ => prec(PREC.rep, seq($._regexp, '*')),
+    regexp_repetition: $ => seq($._regexp, choice('*', '+', '?')),
 
-    regexp_strict_repetition: $ => prec(PREC.rep, seq($._regexp, '+')),
-
-    regexp_option: $ => prec(PREC.rep, seq($._regexp, '?')),
-
-    regexp_alternative: $ => prec.left(PREC.alt, seq(
+    regexp_alternative: $ => prec.left(seq(
       $._regexp,
       '|',
       $._regexp
     )),
 
-    regexp_concatenation: $ => prec.left(PREC.concat, seq(
+    regexp_concatenation: $ => prec.left(seq(
       $._regexp,
       $._regexp
     )),
 
     parenthesized_regexp: $ => parenthesize($._regexp),
 
-    aliased_regexp: $ => prec.right(PREC.as, seq(
+    aliased_regexp: $ => prec.right(seq(
       $._regexp,
       'as',
       $._regexp_name
