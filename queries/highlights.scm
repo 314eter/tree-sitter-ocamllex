@@ -38,3 +38,8 @@
 ;------------
 
 ["[" "]" "(" ")" "{" "}"] @punctuation.bracket
+
+; Comments
+;---------
+
+(comment) @comment
