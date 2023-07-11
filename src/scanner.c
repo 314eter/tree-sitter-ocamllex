@@ -38,6 +38,8 @@ static inline void advance(TSLexer *lexer) { lexer->advance(lexer, false); }
 
 static inline void skip(TSLexer *lexer) { lexer->advance(lexer, true); }
 
+static inline void mark_end(TSLexer *lexer) { lexer->mark_end(lexer); }
+
 static inline bool eof(TSLexer *lexer) { return lexer->eof(lexer); }
 
 static void scan_string(TSLexer *lexer) {
@@ -313,8 +315,14 @@ bool scan_ocaml(Scanner *scanner, TSLexer *lexer) {
         advance(lexer);
         break;
       default:
-        if (!scan_identifier(lexer)) advance(lexer);
+        if (iswspace(lexer->lookahead)) {
+          advance(lexer);
+          continue;
+        } else if (!scan_identifier(lexer)) {
+          advance(lexer);
+        }
     }
+    mark_end(lexer);
   }
 }
 
