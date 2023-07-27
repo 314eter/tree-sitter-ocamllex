@@ -276,7 +276,7 @@ static bool scan_comment(Scanner *scanner, TSLexer *lexer) {
   }
 }
 
-bool scan_ocaml(Scanner *scanner, TSLexer *lexer) {
+static bool scan_ocaml(Scanner *scanner, TSLexer *lexer) {
   for (;;) {
     switch (lexer->lookahead) {
       case '(':
