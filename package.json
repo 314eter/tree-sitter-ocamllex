@@ -22,14 +22,5 @@
   },
   "devDependencies": {
     "tree-sitter-cli": "^0.20.8"
-  },
-  "tree-sitter": [
-    {
-      "scope": "source.ocamllex",
-      "file-types": [
-        "mll"
-      ],
-      "injection-regex": "^(mll|ocamllex)$"
-    }
-  ]
+  }
 }
