@@ -2,24 +2,21 @@
   "grammars": [
     {
       "name": "ocamllex",
-      "camelcase": "Ocamllex",
+      "camelcase": "OCamllex",
       "scope": "source.ocamllex",
       "path": ".",
       "file-types": [
         "mll"
       ],
+      "highlights": "queries/highlights.scm",
+      "injections": "queries/injections.scm",
       "injection-regex": "^(mll|ocamllex)$"
     }
   ],
   "metadata": {
-    "version": "0.20.2",
+    "version": "0.24.0",
     "license": "MIT",
     "description": "OCamllex grammar for tree-sitter",
-    "authors": [
-      {
-        "name": "Pieter Goetschalckx"
-      }
-    ],
     "links": {
       "repository": "https://github.com/314eter/tree-sitter-ocamllex"
     }

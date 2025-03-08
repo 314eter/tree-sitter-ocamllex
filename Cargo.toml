@@ -1,14 +1,15 @@
 [package]
 name = "tree-sitter-ocamllex"
 description = "OCamllex grammar for the tree-sitter parsing library"
-version = "0.20.2"
+version = "0.24.0"
 authors = ["Pieter Goetschalckx"]
 license = "MIT"
 readme = "bindings/rust/README.md"
-keywords = ["incremental", "parsing", "ocamllex"]
-categories = ["parsing", "text-editors"]
+keywords = ["incremental", "parsing", "tree-sitter", "ocaml", "ocamllex"]
+categories = ["parser-implementations", "parsing", "text-editors"]
 repository = "https://github.com/314eter/tree-sitter-ocamllex"
-edition = "2018"
+edition = "2021"
+autoexamples = false
 
 build = "bindings/rust/build.rs"
 include = [
@@ -16,13 +17,17 @@ include = [
   "grammar.js",
   "queries/*",
   "src/*",
+  "tree-sitter.json",
 ]
 
 [lib]
 path = "bindings/rust/lib.rs"
 
 [dependencies]
-tree-sitter = "0.20"
+tree-sitter-language = "0.1"
 
 [build-dependencies]
-cc = "1.0"
+cc = "1.2"
+
+[dev-dependencies]
+tree-sitter = "0.24"
