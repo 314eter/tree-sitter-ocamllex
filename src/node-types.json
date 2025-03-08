@@ -159,6 +159,7 @@
   {
     "type": "lexer_definition",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,

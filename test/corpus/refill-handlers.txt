@@ -11,9 +11,16 @@ rule main = parse _ {}
 ---
 
 (lexer_definition
-  (action (ocaml))
-  (refill_handler (ocaml))
-  (lexer_entry (lexer_entry_name) (lexer_case (any) (action (ocaml)))))
+  (action
+    (ocaml))
+  (refill_handler
+    (ocaml))
+  (lexer_entry
+    name: (lexer_entry_name)
+    (lexer_case
+      (any)
+      (action
+        (ocaml)))))
 
 ===========================
 Anonymous function
@@ -25,5 +32,11 @@ rule main = parse _ {}
 ---
 
 (lexer_definition
-  (refill_handler (ocaml))
-  (lexer_entry (lexer_entry_name) (lexer_case (any) (action (ocaml)))))
+  (refill_handler
+    (ocaml))
+  (lexer_entry
+    name: (lexer_entry_name)
+    (lexer_case
+      (any)
+      (action
+        (ocaml)))))
