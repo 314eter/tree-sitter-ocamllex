@@ -14,7 +14,7 @@
     }
   ],
   "metadata": {
-    "version": "0.24.0",
+    "version": "0.25.0",
     "license": "MIT",
     "description": "OCamllex grammar for tree-sitter",
     "links": {

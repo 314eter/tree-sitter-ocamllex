@@ -1,7 +1,8 @@
 {
   "name": "tree-sitter-ocamllex",
-  "version": "0.24.0",
+  "version": "0.25.0",
   "description": "OCamllex grammar for tree-sitter",
+  "type": "module",
   "repository": "https://github.com/314eter/tree-sitter-ocamllex",
   "license": "MIT",
   "author": "Pieter Goetschalckx",
@@ -15,25 +16,27 @@
     "ocamllex"
   ],
   "files": [
-    "grammar.js",
-    "tree-sitter.json",
     "binding.gyp",
-    "prebuilds/**",
     "bindings/node/*",
+    "grammar.js",
+    "prebuilds/**",
     "queries/*",
     "src/**",
+    "tree-sitter.json",
     "*.wasm"
   ],
   "dependencies": {
-    "node-addon-api": "^8.3.0",
+    "node-addon-api": "^8.5.0",
     "node-gyp-build": "^4.8.4"
   },
   "devDependencies": {
+    "eslint-config-treesitter": "^1.0.2",
     "prebuildify": "^6.0.1",
-    "tree-sitter-cli": "^0.24.6"
+    "tree-sitter": "^0.25.0",
+    "tree-sitter-cli": "^0.25.10"
   },
   "peerDependencies": {
-    "tree-sitter": "^0.22.4"
+    "tree-sitter": "^0.25.0"
   },
   "peerDependenciesMeta": {
     "tree-sitter": {
