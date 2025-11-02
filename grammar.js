@@ -1,15 +1,18 @@
-module.exports = grammar({
+/// <reference types="tree-sitter-cli/dsl" />
+// @ts-check
+
+export default grammar({
   name: 'ocamllex',
 
   extras: $ => [
     /\s/,
-    $.comment
+    $.comment,
   ],
 
   inline: $ => [
     $._regexp_name,
     $._lexer_entry_name,
-    $._lexer_argument
+    $._lexer_argument,
   ],
 
   precedences: $ => [
@@ -25,7 +28,7 @@ module.exports = grammar({
   word: $ => $._identifier,
 
   supertypes: $ => [
-    $._regexp
+    $._regexp,
   ],
 
   rules: {
@@ -35,7 +38,7 @@ module.exports = grammar({
       optional($.refill_handler),
       'rule',
       sep1('and', $.lexer_entry),
-      optional($.action)
+      optional($.action),
     ),
 
     action: $ => seq('{', $.ocaml, '}'),
@@ -44,7 +47,7 @@ module.exports = grammar({
       'let',
       field('name', $._regexp_name),
       '=',
-      field('regexp', $._regexp)
+      field('regexp', $._regexp),
     ),
 
     _regexp: $ => choice(
@@ -59,17 +62,17 @@ module.exports = grammar({
       $.regexp_alternative,
       $.regexp_concatenation,
       $.aliased_regexp,
-      $.parenthesized_regexp
+      $.parenthesized_regexp,
     ),
 
     character: $ => seq(
-      "'",
+      '\'',
       choice(
         /[^\\']/,
         $._null,
-        $.escape_sequence
+        $.escape_sequence,
       ),
-      "'"
+      '\'',
     ),
 
     string: $ => seq(
@@ -82,16 +85,16 @@ module.exports = grammar({
         $._null,
         $.escape_sequence,
         alias(/\\u\{[0-9A-Fa-f]+\}/, $.escape_sequence),
-        alias(/\\\n[\t ]*/, $.escape_sequence)
+        alias(/\\\n[\t ]*/, $.escape_sequence),
       )),
-      '"'
+      '"',
     ),
 
     escape_sequence: $ => choice(
       /\\[\\"'ntbr ]/,
       /\\[0-9][0-9][0-9]/,
       /\\x[0-9A-Fa-f][0-9A-Fa-f]/,
-      /\\o[0-3][0-7][0-7]/
+      /\\o[0-3][0-7][0-7]/,
     ),
 
     character_set: $ => seq(
@@ -99,9 +102,9 @@ module.exports = grammar({
       optional('^'),
       repeat1(choice(
         $.character,
-        $.character_range
+        $.character_range,
       )),
-      ']'
+      ']',
     ),
 
     character_range: $ => seq($.character, '-', $.character),
@@ -109,7 +112,7 @@ module.exports = grammar({
     regexp_difference: $ => prec.left(seq(
       $._regexp,
       '#',
-      $._regexp
+      $._regexp,
     )),
 
     regexp_repetition: $ => seq($._regexp, choice('*', '+', '?')),
@@ -117,12 +120,12 @@ module.exports = grammar({
     regexp_alternative: $ => prec.left(seq(
       $._regexp,
       '|',
-      $._regexp
+      $._regexp,
     )),
 
     regexp_concatenation: $ => prec.left(seq(
       $._regexp,
-      $._regexp
+      $._regexp,
     )),
 
     parenthesized_regexp: $ => parenthesize($._regexp),
@@ -130,13 +133,13 @@ module.exports = grammar({
     aliased_regexp: $ => prec.right(seq(
       $._regexp,
       'as',
-      $._regexp_name
+      $._regexp_name,
     )),
 
     refill_handler: $ => seq(
       'refill', '{',
       $.ocaml,
-      '}'
+      '}',
     ),
 
     lexer_entry: $ => seq(
@@ -145,12 +148,12 @@ module.exports = grammar({
       '=',
       choice('parse', 'shortest'),
       optional('|'),
-      sep1('|', $.lexer_case)
+      sep1('|', $.lexer_case),
     ),
 
     lexer_case: $ => seq(
       $._regexp,
-      $.action
+      $.action,
     ),
 
     _identifier: $ => /[a-z_][a-zA-Z0-9_']*/,
@@ -165,13 +168,27 @@ module.exports = grammar({
     $.ocaml,
     '"',
     $._null,
-  ]
-})
+  ],
+});
 
+/**
+ * Creates a rule that matches one or more
+ * occurrences of `rule` separated by `delimiter`
+ *
+ * @param {RuleOrLiteral} delimiter
+ * @param {RuleOrLiteral} rule
+ * @returns {SeqRule}
+ */
 function sep1(delimiter, rule) {
-  return seq(rule, repeat(seq(delimiter, rule)))
+  return seq(rule, repeat(seq(delimiter, rule)));
 }
 
+/**
+ * Creates a rule that matches `rule` surrounded by parentheses
+ *
+ * @param {RuleOrLiteral} rule
+ * @returns {SeqRule}
+ */
 function parenthesize(rule) {
-  return seq('(', rule, ')')
+  return seq('(', rule, ')');
 }

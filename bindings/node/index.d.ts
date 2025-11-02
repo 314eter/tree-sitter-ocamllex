@@ -24,6 +24,5 @@ type BaseNode = {
     nodeTypeInfo: NodeInfo[];
   };
 
-  export const ocaml: Language;
-  export const interface: Language;
-  export const type: Language;
+declare const language: Language;
+export = language;
